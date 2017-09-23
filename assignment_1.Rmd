@@ -11,6 +11,55 @@ RMarkdown files are pretty neat because they allow you to include in a single do
 
 ## Exercise 2
 
+```{r}
+possible_outcomes <- c(0, 1, 2, 3, 4, 5)
+outcome_probabilities <- c(0.1, 0.5, 0.2, 0.1, 0.05, 0.05)
+n_data_points <- 400
+
+set.seed(1)
+fake_data_points <- sample(possible_outcomes,
+                           n_data_points,
+                           replace=T,
+                           prob=outcome_probabilities)
+set.seed(NULL)
+
+fake_data_set <- tibble::data_frame(`Fake measurement`=fake_data_points)
+```
+
++ __Statement 1.__ We've already established that the 1st line creates a variable called *possible_outcomes*, and assigns it a vector as value. This vector contains the range of our possible outcomes (from 0 to 5). 
+
++ __Statement 2.__ *outcome_probabilities* stores another vector. Each element of this vector is a probability. 
+
+Both of the vectors we've created have the same length : we can already guess that to each possible outcome will be attributed a probability.
+
++ __Statement 3.__ We attribute an integer to the variable *n_data_points*, this integer corresponds to the number of points we will want to generate and plot.
+
++ __Statement 4.__ For this line I looked up [some](https://stackoverflow.com/questions/13605271/reasons-for-using-the-set-seed-function) [informations](http://www.talkstats.com/showthread.php/16833-the-function-set.seed()-in-R?s=53d821a6e07022a37a95a1df83ba5ed6) on the `set.seed()` function. This function allows us to :
+    1. generate random numbers (in the case of our future plot, we can think of it as blowing seeds to the wind and seeing where they land)
+    2. reproduce the same random numbers by reusing the function with the same argument (which would be __highly__ unlikely if we just tried to re-generate new random numbers)
+  
+
++ __Statement 5.__ We then use the `sample()` function to create some data. This function returns a list of values between 0 and 5, which we will assign to the *fake_data_points* variable, and takes 4 arguments as stated [here](http://www.endmemo.com/program/R/sample.php):
+
+    1. our vector containing the possible outcomes
+    2. a positive integer which corresponds to the number of points we want to create.
+    3. *replace*, which takes a boolean as value (true in the example). To understand what this means, I tried the following :
+        + changing T to F, which raised this error : Error in sample.int(length(x), size, replace, prob) : impossible de prendre un échantillon plus grand que la population lorsque 'replace = FALSE'
+        + changing the number of data points to 3 (smaller than our population) : this gave me no insight whatsoever
+        + googled it and found something on [this page](https://stats.stackexchange.com/questions/97512/sample-replace-f-in-r#97516) : we use replacement=T when the numbers we draw return to the pool of possible draws. This explains why we can't use replacement=F when our number of draws is larger than our population, as we would run out of numbers to draw.
+    4. a vector specifying the probability of each event - by event here we mean "having the value x".
+  
+
++ __Statement 6.__ We change the argument of `set.seed()` to NULL, which means that when we will generate new random numbers, they won't be the same as before (except for pure luck, which seems highly unlikely).
+
++ __Statement 7.__ *tibble* is a package. I know this, because as I am working on my own computer, I've had to install it before being able to run to code. I installed it running `install.packages("tibble")` in the console. 
+
+```{r}
+ggplot2::ggplot(fake_data_set, ggplot2::aes(x=`Fake measurement`)) +
+  ggplot2::geom_histogram(bins=5, colour="black", fill="lightgrey")
+```
+
+
 ## Exercise 3
 
 ## Exercise 4
