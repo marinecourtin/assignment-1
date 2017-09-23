@@ -52,7 +52,7 @@ Both of the vectors we've created have the same length : we can already guess th
 
 + __Statement 6.__ We change the argument of `set.seed()` to NULL, which means that when we will generate new random numbers, they won't be the same as before (except for pure luck, which seems highly unlikely).
 
-+ __Statement 7.__ *tibble* is a package. I know this, because as I am working on my own computer, I've had to install it before being able to run to code. I installed it running `install.packages("tibble")` in the console. 
++ __Statement 7.__ *tibble* is a package. I know this, because as I am working on my own computer, I've had to install it before being able to run to code. I installed it running `install.packages("tibble")` in the console. To understand this command I tried to run `help("tibble")`. Based on the information i got and [this webpage](http://www.r-tutor.com/r-introduction/data-frame) I gathered that the command is used to store our data into a tibble data frame (which seems to be a more user friendly type of data frame than the one typically used in R). Running `fake_data_set` returned a table with 2 columns and 400 rows, each rank corresponds to one of our possible outcomes. This tibble data frame which stores our values seems to be entitled *Fake measurement*.
 
 ```{r}
 ggplot2::ggplot(fake_data_set, ggplot2::aes(x=`Fake measurement`)) +
