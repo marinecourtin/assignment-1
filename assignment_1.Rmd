@@ -64,6 +64,33 @@ ggplot2::ggplot(fake_data_set, ggplot2::aes(x=`Fake measurement`)) +
 
 ## Exercise 3
 
+__Question 3.a__
+
+```{r}
+iris_groups23 <- dplyr::filter(iris, Species %in% c("versicolor", "virginica"))
+ggplot2::ggplot(iris_groups23, ggplot2::aes(x=Sepal.Width)) +
+  ggplot2::geom_histogram(colour="black", fill="lightgrey", binwidth=0.1) +
+  ggplot2::facet_grid(Species ~ .)
+```
+
+Each histogram represents the number (count) of irises of a certain species having their sepal width in a specific interval. For example we read that 1 iris of the versicolor species has sepals measuring between 2.0cm (inclusive) to 2.1cm (non-inclusive). In the same way, we read that 12 irises of the virginica species have sepals measuring between 3.0cm and 3.1cm.
+
+```{r}
+library(magrittr)
+iris_versicolor_subset <- dplyr::filter(iris,
+                                        Sepal.Width <= 2.5,
+                                        Species == "versicolor") %>%
+                          dplyr::select(Sepal.Width, Species)
+knitr::kable(iris_versicolor_subset)
+```
+
+### TODO
+
+Check that the histogram is correct for this subset of the “versicolor” measurements by drawing it out by hand, on paper. Hint: you can work out what the bins are from the histograms. Scan or take a picture and include it in your assignment. (I will explain how to include it below.)
+
+__Question 3.b__
+
+
 ## Exercise 4
 
 ## Exercise 5
