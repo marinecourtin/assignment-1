@@ -7,6 +7,8 @@ output: html_document
 
 ## Exercise 1
 
+RMarkdown files are pretty neat because they allow you to include in a single document the R code you wrote, some explanations about the code, and the output of the code (plots for example).
+
 ## Exercise 2
 
 ## Exercise 3
