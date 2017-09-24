@@ -84,9 +84,13 @@ iris_versicolor_subset <- dplyr::filter(iris,
 knitr::kable(iris_versicolor_subset)
 ```
 
-### TODO
 
-Check that the histogram is correct for this subset of the “versicolor” measurements by drawing it out by hand, on paper. Hint: you can work out what the bins are from the histograms. Scan or take a picture and include it in your assignment. (I will explain how to include it below.)
+Here is the drawing I did of this subset of the "versicolor" measurements :
+
+```{r, out.width='70%', fig.align='center'}
+knitr::include_graphics("drawing_3-a.jpg")
+```
+
 
 __Question 3.b__
 
