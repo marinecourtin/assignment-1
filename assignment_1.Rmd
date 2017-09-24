@@ -94,6 +94,17 @@ knitr::include_graphics("drawing_3-a.jpg")
 
 __Question 3.b__
 
+Here are the bins I checked :
+
++ 2.5 : 4 *versicolors* + 4 *virginica* -> 8 irises in total (ok)
++ 2.6 : 3 *versicolors* + 2 *virginica* -> 5 irises in total (ok)
++ 3.5 : no *versicolor* nor *virginica* -> 0 iris in total (ok)
++ 3.8 : no *versicolor* 1 *virginica* -> 1 iris in total (ok)
+
+So yes, as far as we know, the 2 small histograms seem to add up to the big one.
+
+__Question 3.c__
+
 
 ## Exercise 4
 
