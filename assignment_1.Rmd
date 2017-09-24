@@ -106,9 +106,31 @@ So yes, as far as we know, the 2 small histograms seem to add up to the big one.
 __Question 3.c__
 
 
+We are trying to answer 3 questions : 
+
++ what is the sepal width of a versicolor iris ?
++ what is the sepal width of a virginica iris ?
++ do the two match up ?
+
+The problem is that there is not one sepal width measure that can caracterize all irises belonging to the same species. Indeed, there are sources of variability (sun exposition, quantity of nutrients in the soil etc...) which explains why these measurements are distributed on a continuum (2.0-3.4cm for versicolor irises and 2.0-3.8cm for virginica irises in our data).
+
+When we ask if the two species are the same in terms of sepal width, what we really want to know is wether the two species would have the same sepal width measurements if we took out that source of variability.
+    
+Here are the 2 possible hypotheses we might entertain :
+
+
++ __Hypothesis A__: The virginica and versicolor iris species are the same in terms of sepal width.
+
+    
+    According to this hypothesis, both species of irises share the same underlying pattern in terms of their sepal width. This doesn't mean that we will observe identical histograms (and in our data we don't), but rather that the differences we might pick up on in terms of the distribution of sepal width is based on the presence of a source of variability (sun exposition, quantity of nutrients in the soil etc...). If we continued our experiment and measured other irises, we would expect to see the differences between the two histograms get less prominent. For example, we might encounter a few versicolor irises with 3.5 to 3.8cm sepal width, and a few virginica irises with sepal width between 2.0 and 2.5cm.
+    
++ __Hypothesis B__: The virginica and versicolor iris species are different in terms of sepal width.
+
+    According to this second hypothesis, both species do not share the same underlying pattern in terms of their sepal width. If both our histograms looked similar for the two species, it would be pure luck, as the most probable outcome would be 2 distributions showing differences. For example if we did further measurements, we could expect to see more virginica irises with sepal width between 3.5 and 3.8, while there would still be none of these measurements for versicolor irises. We could then postulate that virginica irises reach higher sepal width more often than versicolor irises.
+
+
 ## Exercise 4
 
 ## Exercise 5
 
-## Exercise 6
 
