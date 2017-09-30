@@ -205,9 +205,15 @@ We now wish to discuss 2 hypotheses :
 
 + __Hypothesis A__ : Semantically transparent and opaque *ver-* verbs are the same in terms of their frequency.
 
-    If this hypothesis is verified, we would expect the two subplots to look somewhat similar, with similar counts of verbs having similar frequencies for both semantically transparent and semantically opaque verbs. In our case this would mean pretty high counts of low frequency verbs and small counts of high frequency verbs. We could still observe some differences in the two distributions caused by an exterior source of variability.
+    If this hypothesis is verified, we would expect the two subplots to look somewhat similar, with similar counts of verbs having similar frequencies for both semantically transparent and semantically opaque verbs. In our case this would mean pretty high counts of low frequency verbs and lower counts of high frequency verbs. We could still observe some differences in the two distributions caused by an exterior source of variability.
 
 + __Hypothesis B__ : Semantically transparent and opaque *ver-* verbs are different in terms of their frequency.
+
+    If this hypothesis is verified, we would expect the two subplots to show differences in the underlying patterns. In our case this would probably mean :
+
+    + For semantically transparent verbs, really high counts of low frequency verbs, practically no verbs with higher frequencies.
+
+    + For semantically opaque verbs, mid-range counts of low frequency verbs, presence of low counts of higher frequency verbs
 
 
 __Question 5c.__
