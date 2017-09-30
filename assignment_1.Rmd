@@ -191,3 +191,9 @@ ggplot2::ggplot(ver_balanced, ggplot2::aes(x=Frequency)) +
   ggplot2::facet_grid(SemanticClass ~ .)
 ```
 
+We are now observing this histogram of count data. The figure is composed of 2 subplot : the 1st one concerns semantically opaque Dutch verbs, while the second represents semantically transparent Dutch verbs from our corpus. There are 198 observations in each of these two groups. Each bar stands for the number of verbs (opaque for the top and transparent at the bottom) having x occurences where x [y:y+250[. For example if we look at the bottom subplot and specifically the second bar from the left, we find out that there are 25 semantically transparent Dutch verbs with a number of occurences between 250 (included) and 500 (not included).
+
+The 2 types of counts are therefore :
+
++ count (y-axis) : number of verbs
++ "frequency" (x-axis) : number of occurences of the verb 
