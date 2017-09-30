@@ -155,6 +155,11 @@ ggplot2::ggplot(stressshift::stress_shift_permit, ggplot2::aes(x=0, fill=Syllabl
   ggplot2::xlim(c(-1,1))
 ```
 
++ __Hypothesis A__: Permit (noun) and permit (verb) are the same in terms of their stress:
+
+    According to this hypothesis permit(noun) and permit(verb) share the same underlying pattern of accentuation. This means that we would most likely expect them to have similar distributions in the placement of the stress. To be more specific, we would expect the distribution to look somewhat like that of the second figure, which would give us around 18 occurences of the stress on the 1st syllable and 28 occurences of the stress on the 2nd syllable. Of course we could find some variations (14 1st syllable occurences for noun and 22 for verb for example), but if the noun and verb share the same underlying pattern, observing extreme differences between their distributions would have a low probability.
+  
++ __Hypothesis B__: Permit (noun) and permit (verb) are different in terms of their stress.
 
 __Question 4.b__
 
