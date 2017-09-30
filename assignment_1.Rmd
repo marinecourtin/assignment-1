@@ -174,3 +174,20 @@ The dictionaries used in this study date back to the 17th century which is a use
 ## Exercise 5
 
 
+__Question 5a.__
+
+```{r, echo=FALSE}
+library(magrittr)
+set.seed(1)
+ver_balanced <- languageR::ver %>%
+  dplyr::group_by(SemanticClass) %>%
+  dplyr::sample_n(198)
+set.seed(NULL)
+```
+
+```{r, echo=FALSE}
+ggplot2::ggplot(ver_balanced, ggplot2::aes(x=Frequency)) +
+  ggplot2::geom_histogram(fill="lightgrey", colour="black", binwidth=250) +
+  ggplot2::facet_grid(SemanticClass ~ .)
+```
+
