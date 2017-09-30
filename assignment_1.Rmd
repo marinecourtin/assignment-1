@@ -35,25 +35,25 @@ Both of the vectors we've created have the same length : we can already guess th
 + __Statement 3.__ We attribute an integer to the variable *n_data_points*, this integer corresponds to the number of points we will want to generate and plot.
 
 + __Statement 4.__ For this line I looked up [some](https://stackoverflow.com/questions/13605271/reasons-for-using-the-set-seed-function) [informations](http://www.talkstats.com/showthread.php/16833-the-function-set.seed()-in-R?s=53d821a6e07022a37a95a1df83ba5ed6) on the `set.seed()` function. This function allows us to :
-    1. generate random numbers (in the case of our future plot, we can think of it as blowing seeds to the wind and seeing where they land)
-    2. reproduce the same random numbers by reusing the function with the same argument (which would be __highly__ unlikely if we just tried to re-generate new random numbers)
+    1. __generate random numbers__ (in the case of our future plot, we can think of it as blowing seeds to the wind and seeing where they land)
+    2. __reproduce the same random numbers__ by reusing the function with the same argument (which would be __highly__ unlikely if we just tried to re-generate new random numbers)
   
 
 + __Statement 5.__ We then use the `sample()` function to create some data. This function returns a list of values between 0 and 5, which we will assign to the *fake_data_points* variable, and takes 4 arguments as stated [here](http://www.endmemo.com/program/R/sample.php):
 
-    1. our vector containing the possible outcomes
-    2. a positive integer which corresponds to the number of points we want to create.
+    1. our __vector containing the possible outcomes__
+    2. a positive integer which corresponds to __the number of points we want to create__.
     3. *replace*, which takes a boolean as value (true in the example). To understand what this means, I tried the following :
         + changing T to F, which raised this error : Error in sample.int(length(x), size, replace, prob) : impossible de prendre un échantillon plus grand que la population lorsque 'replace = FALSE'
         + changing the number of data points to 3 (smaller than our population) : this gave me no insight whatsoever
-        + googled it and found something on [this page](https://stats.stackexchange.com/questions/97512/sample-replace-f-in-r#97516) : we use replacement=T when the numbers we draw return to the pool of possible draws. This explains why we can't use replacement=F when our number of draws is larger than our population, as we would run out of numbers to draw.
-    4. a vector specifying the probability of each event - by event here we mean "having the value x".
+        + googled it and found something on [this page](https://stats.stackexchange.com/questions/97512/sample-replace-f-in-r#97516) : __we use replacement=T when the numbers we draw return to the pool of possible draws__. This explains why we can't use replacement=F when our number of draws is larger than our population, as we would run out of numbers to draw.
+    4. a __vector specifying the probability of each event__ - by event here we mean "having the value x".
   
 
 + __Statement 6.__ We change the argument of `set.seed()` to NULL, which means that when we will generate new random numbers, they won't be the same as before (except for pure luck, which seems highly unlikely).
 
 
-+ __Statement 7.__ *tibble* is a package. I know this, because as I am working on my own computer, I've had to install it before being able to run to code. I installed it running `install.packages("tibble")` in the console. To understand this command I tried to run `help("tibble")`. Based on the information i got and [this webpage](http://www.r-tutor.com/r-introduction/data-frame) I gathered that the command is used to store our data into a tibble data frame (which seems to be a more user friendly type of data frame than the one typically used in R). Running `fake_data_set` returned a table with 2 columns and 400 rows, each rank corresponds to one of our possible outcomes. This tibble data frame which stores our values seems to be entitled *Fake measurement*.
++ __Statement 7.__ *tibble* is a package. I know this, because as I am working on my own computer, I've had to install it before being able to run to code. I installed it running `install.packages("tibble")` in the console. To understand this command I tried to run `help("tibble")`. Based on the information i got and [this webpage](http://www.r-tutor.com/r-introduction/data-frame) I gathered that the command is used to __store our data into a tibble data frame__ (which seems to be a more user friendly type of data frame than the one typically used in R). Running `fake_data_set` returned a table with 2 columns and 400 rows, each rank corresponds to one of our possible outcomes. This tibble data frame which stores our values seems to be entitled *Fake measurement*.
 
 
 ```{r, echo=FALSE}
@@ -73,7 +73,7 @@ ggplot2::ggplot(iris_groups23, ggplot2::aes(x=Sepal.Width)) +
   ggplot2::facet_grid(Species ~ .)
 ```
 
-Each histogram represents the number (count) of irises of a certain species having their sepal width in a specific interval. For example we read that 1 iris of the versicolor species has sepals measuring between 2.0cm (inclusive) to 2.1cm (non-inclusive). In the same way, we read that 12 irises of the virginica species have sepals measuring between 3.0cm and 3.1cm.
+Each histogram represents the __number (count) of irises of a certain species having their sepal width in a specific interval__. For example we read that 1 iris of the versicolor species has sepals measuring between 2.0cm (inclusive) to 2.1cm (non-inclusive). In the same way, we read that 12 irises of the virginica species have sepals measuring between 3.0cm and 3.1cm.
 
 ```{r, echo=FALSE}
 library(magrittr)
@@ -112,9 +112,9 @@ We are trying to answer 3 questions :
 + what is the sepal width of a virginica iris ?
 + do the two match up ?
 
-The problem is that there is not one sepal width measure that can caracterize all irises belonging to the same species. Indeed, there are sources of variability (sun exposition, quantity of nutrients in the soil etc...) which explains why these measurements are distributed on a continuum (2.0-3.4cm for versicolor irises and 2.0-3.8cm for virginica irises in our data).
+The problem is that __there is not one sepal width measure that can caracterize all irises belonging to the same species__. Indeed, there are __sources of variability__ (sun exposition, quantity of nutrients in the soil etc...) which explains why these measurements are distributed on a continuum (2.0-3.4cm for versicolor irises and 2.0-3.8cm for virginica irises in our data).
 
-When we ask if the two species are the same in terms of sepal width, what we really want to know is wether the two species would have the same sepal width measurements if we took out that source of variability.
+When we ask if the two species are the same in terms of sepal width, what we really want to know is __whether the two species would have the same sepal width measurements if we took out that source of variability__.
     
 Here are the 2 possible hypotheses we might entertain :
 
@@ -122,7 +122,7 @@ Here are the 2 possible hypotheses we might entertain :
 + __Hypothesis A__: The virginica and versicolor iris species are the same in terms of sepal width.
 
     
-    According to this hypothesis, both species of irises share the same underlying pattern in terms of their sepal width. This doesn't mean that we will observe identical histograms (and in our data we don't), but rather that the differences we might pick up on in terms of the distribution of sepal width is based on the presence of a source of variability (sun exposition, quantity of nutrients in the soil etc...). If we continued our experiment and measured other irises, we would expect to see the differences between the two histograms get less prominent. For example, we might encounter a few versicolor irises with 3.5 to 3.8cm sepal width, and a few virginica irises with sepal width between 2.0 and 2.5cm.
+    According to this hypothesis, both species of irises share the same underlying pattern in terms of their sepal width. This doesn't mean that we will observe identical histograms (and in our data we don't), but rather that the differences we might pick up on in terms of the distribution of sepal width is __based on the presence of a source of variability__ (sun exposition, quantity of nutrients in the soil etc...). If we continued our experiment and measured other irises, we would __expect to see the differences between the two histograms get less prominent__. For example, we might encounter a few versicolor irises with 3.5 to 3.8cm sepal width, and a few virginica irises with sepal width between 2.0 and 2.5cm.
     
 + __Hypothesis B__: The virginica and versicolor iris species are different in terms of sepal width.
 
@@ -157,11 +157,11 @@ ggplot2::ggplot(stressshift::stress_shift_permit, ggplot2::aes(x=0, fill=Syllabl
 
 + __Hypothesis A__: Permit (noun) and permit (verb) are the same in terms of their stress:
 
-    According to this hypothesis permit(noun) and permit(verb) share the same underlying pattern of accentuation. This means that we would most likely expect them to have similar distributions in the placement of the stress. To be more specific, we would expect the distribution to look somewhat like that of the second figure, which would give us around 18 occurences of the stress on the 1st syllable and 28 occurences of the stress on the 2nd syllable. Of course we could find some variations (14 1st syllable occurences for noun and 22 for verb for example), but if the noun and verb share the same underlying pattern, observing extreme differences between their distributions would have a low probability.
+    According to this hypothesis permit(noun) and permit(verb) share the same underlying pattern of accentuation. This means that we would most likely expect them to have __similar distributions__ in the placement of the stress. To be more specific, we would expect the distribution to look somewhat like that of the second figure, which would give us around 18 occurences of the stress on the 1st syllable and 28 occurences of the stress on the 2nd syllable. Of course we __could find some variations__ (14 1st syllable occurences for noun and 22 for verb for example), but if the noun and verb share the same underlying pattern, observing extreme differences between their distributions would have a low probability.
   
 + __Hypothesis B__: Permit (noun) and permit (verb) are different in terms of their stress.
 
-    According to this hypothesis permit(noun) and permit(verb) do not share the same underlying pattern of accentuation. For the both of them to have similar distributions of stress placement would not be very probably. Instead, we would expect to see differences between the frequencies of their stress placement and the global frequency of the stress placement for the word *permit* regardless of its part-of-speech. 
+    According to this hypothesis permit(noun) and permit(verb) do not share the same underlying pattern of accentuation. For the both of them to have similar distributions of stress placement would not be very probably. Instead, we would __expect to see differences__ between the frequencies of their stress placement and the global frequency of the stress placement for the word *permit* regardless of its part-of-speech. 
 
 __Question 4.b__
 
@@ -195,8 +195,8 @@ We are now observing this histogram of count data. The figure is composed of 2 s
 
 The 2 types of counts are therefore :
 
-+ count (y-axis) : number of verbs
-+ "frequency" (x-axis) : number of occurences of the verb 
++ count (y-axis) : __number of verbs__
++ "frequency" (x-axis) : __number of occurences for each of the counted verbs__
 
 
 __Question 5b.__
@@ -217,3 +217,9 @@ We now wish to discuss 2 hypotheses :
 
 
 __Question 5c.__
+
+I am going to argue that semantically transparent and opaque *ver-* verbs are __different in terms of their frequency__. We can see that generally speaking, there are more semantically opaque verbs with high frequencies than there are semantically transparent verbs with high frequencies. Indeed the large majority of semantically transparent verbs have low frequencies.
+
+Why is there more semantically opaque verbs with high frequencies than semantically transparent ones ?
+
+Maybe (and here I acknowledge that I have no proof to support this argument) there is a parallel between two phenomenon : the process of a verb becoming more frequent and the process of the verb becoming semantically opaque might have something to do with one another. For example let's say that we're considering a semantically transparent verb. As time passes, the __internal structure and form of the verb solidifies__. Therefore our verb __loses its semantic transparency__ and becomes more opaque. We aren't able to infer its meaning from its form as we used to, but since the word has become widely accepted by the community we do not need to anymore. New verbs might be __created with transparent forms__ and be used less frequently, but as they become accepted as part of the community's __shared vocabulary__, this __need for transparency diminishes__. The use of the word slowly branches out from its original meaning, thus becoming more opaque, while conserving a high frequency usage.
